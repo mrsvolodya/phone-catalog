@@ -17,7 +17,7 @@ export const ProductList: React.FC<Props> = ({ title }) => {
 
   useEffect(() => {
     handleResize(element);
-  }, [favorites]);
+  }, [favorites, handleResize]);
 
   return (
     <div

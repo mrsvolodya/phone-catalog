@@ -1,4 +1,4 @@
-import React, { RefObject, useMemo, useState } from 'react';
+import React, { RefObject, useCallback, useMemo, useState } from 'react';
 import { Product } from '../types/ContextType/Product';
 import { useLocaleStorage } from '../utils/hooks/useLocalStorage';
 
@@ -36,28 +36,33 @@ export const StateProvider: React.FC<Props> = ({ children }) => {
     [],
   );
 
-  const handleAddToFavorites = (product: Product) => {
-    setFavorites(prevProducts => {
-      const newFavorites = [...prevProducts];
-      const availableFavorites = newFavorites.some(
-        item => item.itemId === product.itemId,
-      );
+  const handleAddToFavorites = useCallback(
+    (product: Product) => {
+      setFavorites(prevProducts => {
+        const newFavorites = [...prevProducts];
+        const availableFavorites = newFavorites.some(
+          item => item.itemId === product.itemId,
+        );
 
-      if (availableFavorites) {
-        return newFavorites.filter(item => item.itemId !== product.itemId);
-      } else {
-        return [...newFavorites, product];
+        if (availableFavorites) {
+          return newFavorites.filter(item => item.itemId !== product.itemId);
+        } else {
+          return [...newFavorites, product];
+        }
+      });
+    },
+    [setFavorites],
+  );
+
+  const handleResize = useCallback(
+    (el: RefObject<HTMLDivElement>) => {
+      if (el.current) {
+        const verticalScroll = window.innerHeight < el.current.offsetHeight;
+        setIsScroll(verticalScroll);
       }
-    });
-  };
-
-  const handleResize = (el: RefObject<HTMLDivElement>) => {
-    if (el.current) {
-      const vertivalScroll = window.innerHeight < el.current.offsetHeight;
-
-      setIsScroll(vertivalScroll);
-    }
-  };
+    },
+    [setIsScroll],
+  );
 
   const stateTools = useMemo(
     () => ({

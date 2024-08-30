@@ -35,6 +35,8 @@
     background-color: $backgroundColor;
     border: 1px solid $bordeColor;
     cursor: pointer;
+    @extend %transitionPage;
+
 
     &:hover {
       @extend %lightThemeHoverBorderButton

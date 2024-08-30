@@ -1,5 +1,5 @@
 import style from './HeroSlider.module.scss';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { BreakPointsContext } from '../../../store/BreakPointsProvider';
 import { StateContext } from '../../../store/StateProvider';
 import { desktopBanner, mobileBanner } from '../../../utils/BannerList';
@@ -93,13 +93,16 @@ export const HeroSlider = () => {
     window.addEventListener('mouseup', onTouchEnd);
   };
 
-  const indicatorOnClick = (ind: number) => {
-    const containerEl = getRefValue(containerRef);
-    const containerWidth = containerEl.offsetWidth;
+  const indicatorOnClick = useCallback(
+    (ind: number) => {
+      const containerEl = getRefValue(containerRef);
+      const containerWidth = containerEl.offsetWidth;
 
-    setCurrentIndex(ind);
-    setOffsetX(-(containerWidth * ind));
-  };
+      setCurrentIndex(ind);
+      setOffsetX(-(containerWidth * ind));
+    },
+    [setCurrentIndex, setOffsetX],
+  );
 
   function handleNext() {
     if (currentIndex < lengthImgList) {
@@ -131,7 +134,7 @@ export const HeroSlider = () => {
     } else {
       return () => {};
     }
-  }, [autoPlay, currentIndex]);
+  }, [autoPlay, currentIndex, indicatorOnClick]);
 
   const { isLoading } = useContext(ProductsContext);
 

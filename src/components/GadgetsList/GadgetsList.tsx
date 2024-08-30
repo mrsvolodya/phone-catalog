@@ -39,7 +39,7 @@ export const GadgetsList: React.FC<Props> = ({ title }) => {
 
   useEffect(() => {
     handleResize(element);
-  }, [resultFilteredDev]);
+  }, [resultFilteredDev, handleResize]);
 
   return (
     <div

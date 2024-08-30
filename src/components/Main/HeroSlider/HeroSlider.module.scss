@@ -4,7 +4,6 @@
 
 .slider {
   padding-inline: $onDesctop-container-padding;
-  cursor: pointer;
   &__block {
     display: flex;
     position: relative;
@@ -18,7 +17,10 @@
     background-color: $backgroundButtonSliderColor;
     border: 1px solid $bordeColor;
     cursor: pointer;
+
     &:hover {
+      @extend %transitionPage;
+
       border-color: $actionButtonHoverBorder;
     }
   }
@@ -66,6 +68,13 @@
     border: none;
     position: relative;
     margin: 4px;
+
+    &::after {
+      content: '';
+      cursor: pointer;
+      padding-block: 10px;
+      padding-inline: 8px;
+    }
   }
 
   &__smallButton:not(:last-child) {

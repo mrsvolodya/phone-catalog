@@ -40,7 +40,7 @@ export const CartItems = () => {
 
   useEffect(() => {
     handleResize(element);
-  }, [cartItems]);
+  }, [cartItems, handleResize]);
 
   return (
     <div

@@ -82,7 +82,7 @@ export const ProductDetails: React.FC<Props> = ({ gadget }) => {
 
   useEffect(() => {
     handleResize(element);
-  }, [findProduct]);
+  }, [findProduct, handleResize]);
 
   return (
     <div
