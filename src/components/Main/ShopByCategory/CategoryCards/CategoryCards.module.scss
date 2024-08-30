@@ -1,0 +1,92 @@
+@use '../../../../styles/block/utils/variables' as *;
+@import '../../../../styles/block/utils/mixins';
+
+.category {
+  &__container {
+    column-gap: 16px;
+    display: grid;
+    grid-template-columns: repeat($grid-columns-desctop, 1fr);
+  }
+
+  &__card {
+    font-weight: 600;
+    grid-column: span 8;
+  }
+
+  &__cardLink {
+    display: flex;
+    margin-bottom: 24px;
+  }
+
+  &__cardImage {
+    width: 100%;
+    transition: 0.3s ease-in-out;
+  }
+
+  &__cardImage:hover {
+    transform: scale(1.07);
+  }
+
+  &__cardName {
+    position: relative;
+    display: flex;
+    color: $textColor;
+    line-height: 26px;
+    font-size: 20px;
+    margin-bottom: 4px;
+    font-weight: inherit;
+    width: max-content;
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: 1px;
+      left: 1px;
+      right: 1px;
+
+      border-bottom: 1px solid $actionButtonHoverBorder;
+
+      @include initialAnimation;
+    }
+  }
+
+  &__cardQuantity {
+    color: $secondTextColor;
+    line-height: 21px;
+    font-size: 14px;
+    font-weight: inherit;
+  }
+}
+
+.category__cardName:hover::after {
+  @include activeAnimation;
+}
+
+@include onTablet {
+  .category {
+    &__container {
+      grid-template-columns: repeat($grid-columns-tablet, 1fr);
+    }
+
+    &__card {
+      grid-column: span 4;
+    }
+  }
+}
+
+@include onPhone {
+  .category {
+    &__container {
+      flex-direction: column;
+      grid-template-columns: repeat($grid-columns-phone, 1fr);
+    }
+    &__card {
+      grid-column: span 4;
+    }
+
+    &__skeletonCenter {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}

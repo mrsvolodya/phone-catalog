@@ -1,0 +1,106 @@
+@use '../../styles/block/utils/variables' as *;
+@import '../../styles/block/utils/mixins';
+
+.gadgets {
+  max-width: $maxContentWidth;
+  margin: 0 auto;
+  position: relative;
+  padding-inline: 32px;
+
+  &__widthSortBy {
+    min-width: 176px;
+  }
+
+  &__widthItemsOnPage {
+    min-width: 128px;
+  }
+
+  &__title {
+    margin-top: 40px;
+    margin-bottom: 8px;
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  &__noGadgetsText {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  &__itemsQuantity {
+    margin-bottom: 40px;
+  }
+
+  &__selectors {
+    display: flex;
+    column-gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__paginationLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $nav-btn-size;
+    height: $nav-btn-size;
+    border: 1px solid $bordeColor;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid $borderHoverButton;
+    }
+  }
+
+  &__cardsContainer {
+    margin-bottom: 40px;
+  }
+}
+
+.gadgets__darkTheme .gadgets__paginationLink {
+  background-color: $linkBackgroundButton;
+}
+
+.gadgets__darkTheme .gadgets__paginationLink:hover {
+  background-color: $actionsBackgroundButtonHover;
+}
+
+.gadgets__darkTheme .gadgets__selectOptions:focus {
+  background-image: url('../../image/DarkTheme/arrow-up.svg');
+}
+
+select:focus {
+  background-image: url('../../image/Light-Theme/arrow-up.svg');
+}
+
+.gadgets__selectors > .gadgets__select:last-child .gadgets__selectOptions {
+  width: 126px;
+}
+
+@include onTablet {
+  .gadgets {
+    padding-inline: 24px;
+  }
+}
+
+@include onPhone {
+  .gadgets {
+    padding-inline: 16px;
+
+    &__title {
+      margin-top: 24px;
+      margin-bottom: 8px;
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    &__cardsContainer {
+      margin-bottom: 24px;
+    }
+  }
+}

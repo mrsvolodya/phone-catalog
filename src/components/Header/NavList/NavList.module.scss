@@ -1,0 +1,50 @@
+@use '../../../styles/block/utils/variables' as *;
+@import '../../../styles/block/utils/mixins';
+@import '../../../styles/block/utils/placeholders';
+
+.nav {
+  &__list {
+    display: flex;
+    padding: 0;
+  }
+
+  &__item:not(:last-child) {
+    margin-inline-end: 64px;
+  }
+
+  &__link {
+    position: relative;
+    text-transform: uppercase;
+    color: $secondTextColor;
+    display: flex;
+    align-items: center;
+    height: 64px;
+
+    &::after {
+      background-color: $textColor;
+      position: absolute;
+      content: '';
+      height: 3px;
+      width: 100%;
+      top: 60px;
+      left: 0;
+      color: $textColor;
+
+      @include initialAnimation;
+    }
+
+    &:hover {
+      color: $textColor;
+
+      @extend %transitionPage;
+    }
+  }
+}
+
+.nav__link.nav__activeLink {
+  color: $textColor;
+}
+
+.nav__activeLink.nav__link::after {
+  @include activeAnimation;
+}

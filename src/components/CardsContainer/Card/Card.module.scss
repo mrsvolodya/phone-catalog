@@ -1,0 +1,168 @@
+@use '../../../styles/block/utils/variables' as *;
+@import '../../../styles/block/utils/mixins';
+@import '../../../styles/block/utils/placeholders';
+
+.card {
+
+  &__container {
+    border: 1px solid $bordeColor;
+    padding: 32px;
+    background-color: $backgroundColorPhoneCard;
+    flex-shrink: 0;
+  }
+
+  &__cardName {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    color: $textColor;
+    min-height: 58px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+
+    @extend %transitionPage;
+   
+    &:hover {
+      color: $hover-btn-cart;
+    }
+  }
+
+  &__cardImg {
+    margin-bottom: 8px;
+
+    @extend %transitionPage;
+    @include onHover;
+  }
+
+  &__cardLink {
+    display: flex;
+    justify-content: center;
+    height: 208px;
+  }
+
+  &__cardLine {
+    display: block;
+    border-bottom: 1px solid $bordeColor;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  &__cardDescription {
+    display: flex;
+    justify-content: space-between;
+    line-height: 15px;
+    margin-bottom: 8px;
+  }
+
+  &__price {
+    display: flex;
+    font-size: 22px;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  &__discountPrice {
+    line-height: 31px;
+    font-weight: 800;
+    font-size: inherit;
+  }
+
+  &__fullPrice {
+    color: $secondTextColor;
+    font-weight: 600;
+    font-size: inherit;
+    line-height: 28px;
+    text-decoration: line-through;
+  }
+
+  &__key {
+    font-weight: 700;
+    color: $secondTextColor;
+  }
+
+  &__value {
+    font-weight: 700;
+  }
+
+  &__buttons:hover {
+    @extend %lightThemeHoverBorderButton;
+  }
+
+  &__darkTheme &__buttons:hover {
+    @extend %darkThemeHoverBackgroundButton;
+  }
+
+  &__cardActions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  &__addToCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    color: #fff;
+    background-color: $backgroundColorButtonCart;
+    height: $btn-cart-size;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    @extend %transitionPage;
+
+    &:hover {
+      @extend %buttonHoverEffect;
+    }
+  }
+
+  &__addedToCart {
+    @include addedToCartDefaultStyle;
+    &:hover {
+      background-color: $selectBackground;
+    }
+  }
+
+  &__darkTheme &__addedToCart {
+    background-color: $selectBackground;
+  }
+
+  &__darkTheme &__addedToCart:hover {
+    @extend %darkThemeHoverBackgroundButton;
+  }
+
+  &__сardFavBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: $btn-cart-size;
+    height: $btn-cart-size;
+    background-color: $backgroundColorButtonFav;
+    border: 1px solid $bordeColor;
+    cursor: pointer;
+    @extend %transitionPage;
+
+  }
+
+  &__selectedFavorite {
+    min-width: $btn-cart-size;
+    background-color: $backgroundColor;
+  }
+
+  &__сardFavBtn:hover {
+    @extend %lightThemeHoverBorderButton;
+  }
+
+  &__darkTheme &__сardFavBtn:hover {
+    @extend %darkThemeHoverBackgroundButton;
+  }
+}
+
+.card__container.card__darkTheme {
+  border: none;
+}

@@ -1,0 +1,149 @@
+@use '../../../styles/block/utils/variables' as *;
+@import '../../../styles/block/utils/mixins';
+@import '../../../styles/block/utils/placeholders';
+
+.footer {
+  height: $footer-el-height-l;
+  border-top: $bordeColor 1px solid;
+
+  &__actionContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__navContainer {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-width: $maxContentWidth;
+    margin: 0 auto;
+    padding-inline: 32px;
+    justify-content: space-between;
+  }
+
+  &__logoLink {
+    display: flex;
+
+    @extend %transitionPage;
+    &:hover {
+      @extend %transitionPage;
+      @include onHover;
+    }
+  }
+
+  &__navList {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    line-height: 11px;
+  }
+
+  &__navItem {
+    display: flex;
+  }
+
+  &__logoImage {
+    height: 32px;
+    width: 89px;
+  }
+
+  &__navLink {
+    display: flex;
+    white-space: nowrap;
+    color: $textFooterColor;
+    text-transform: uppercase;
+    align-items: center;
+    height: $footer-el-height-l - 1px;
+
+    &:hover {
+      @extend %transitionPage;
+
+      color: $textColor;
+    }
+  }
+
+  &__navBlock {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+  }
+
+  &__upTo {
+    display: flex;
+    color: $secondTextColor;
+    line-height: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+      @extend %transitionPage;
+
+      color: $textColor;
+    }
+  }
+
+  &__arrowUpImg {
+    height: 16px;
+    width: 16px;
+  }
+
+  &__upToArrowLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $nav-btn-size;
+    height: $nav-btn-size;
+    border: $bordeColor 1px solid;
+    cursor: pointer;
+    &:hover {
+      @extend %lightThemeHoverBorderButton;
+    }
+
+    .footer__darkTheme & {
+      background-color: $linkBackgroundButton;
+
+      @extend %darkThemeHoverBackgroundButton;
+    }
+
+    .footer__darkTheme &:hover {
+      background-color: $actionsBackgroundButtonHover;
+    }
+  }
+
+  &__upNav {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+  }
+}
+
+.footer__darkTheme .footer__navLink:hover {
+  color: $backHoverBtn;
+}
+
+@include onPhone {
+  .footer {
+    height: $footer-el-height-s;
+    &__navContainer {
+      flex-direction: column;
+      align-items: start;
+      padding: 32px 16px;
+    }
+
+    &__navList {
+      flex-direction: column;
+      gap: 16px;
+      padding-block: 32px;
+    }
+
+    &__navLink {
+      height: 16px;
+    }
+
+    &__upNav {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

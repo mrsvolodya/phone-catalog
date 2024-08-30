@@ -1,0 +1,29 @@
+@use '../../styles/block/utils/variables' as *;
+@import '../../styles/block/utils/mixins';
+
+.back {
+  display: flex;
+  width: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  cursor: pointer;
+  color: $backTextColorDefoult;
+  &::before {
+    content: '<';
+    padding-right: 4px;
+    color: $textColor;
+  }
+}
+
+.back__darkTheme.back {
+  color: $backTextColorDefoult;
+}
+
+.back:hover::before {
+  color: $backHoverBtn;
+}
+
+.back:hover {
+  color: $backHoverBtn;
+}

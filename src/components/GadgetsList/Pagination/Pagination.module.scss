@@ -1,0 +1,61 @@
+@use '../../../styles/block/utils/variables' as *;
+@import '../../../styles/block/utils/mixins';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  column-gap: 16px;
+
+  @include space-between-sectionsDesktop;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $nav-btn-size;
+    height: $nav-btn-size;
+    cursor: pointer;
+    background-color: $paginationBackColor;
+    border: 1px solid $selectDefault;
+
+    &:hover {
+      background-color: $paginationBackColorHover;
+      border: 1px solid $paginationBorderColorHover;
+    }
+  }
+
+  &__numbers {
+    display: flex;
+    column-gap: 8px;
+  }
+
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $nav-btn-size;
+    height: $nav-btn-size;
+    background-color: $paginationNumberBackColor;
+    border: 1px solid $selectDefault;
+    color: $textColor;
+    font-weight: 600;
+    font-size: 14px;
+
+    &:hover {
+      background-color: $paginationBackColorHover;
+      border: 1px solid $paginationBorderColorHover;
+      color: $textColor;
+    }
+  }
+
+  &__active {
+    color: $paginationTextColorActive;
+    background-color: $backHoverBtn;
+    border: none;
+    pointer-events: none;
+  }
+
+  &__disabled {
+    pointer-events: none;
+  }
+}

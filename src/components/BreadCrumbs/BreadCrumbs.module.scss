@@ -1,0 +1,44 @@
+@use '../../styles/block/utils/variables' as *;
+@import '../../styles/block/utils/mixins';
+
+.breadCrumbs {
+  margin: 24px auto 0;
+  max-width: $maxContentWidth;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  & > * {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+
+  & .crumb::after {
+    content: '>';
+    margin-left: 8px;
+    color: $secondTextColor;
+  }
+
+  & .crumb:last-child:after {
+    display: none;
+  }
+
+  & .crumb a {
+    color: $textColor;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: capitalize;
+  }
+}
+
+.crumb:last-child a {
+  color: #89939a;
+  pointer-events: none;
+}
+
+@include onPhone {
+  .breadCrumbs {
+    margin: 24px auto 24px;
+  }
+}

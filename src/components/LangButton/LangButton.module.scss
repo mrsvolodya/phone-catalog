@@ -1,0 +1,22 @@
+@use '../../styles/block/utils/variables' as *;
+@import '../../styles/block/utils/mixins';
+@import '../../styles/block/utils/placeholders';
+
+.language__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: $secondTextColor;
+  font-weight: 700;
+  background-color: $backgroundColor;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  &:hover {
+    color: $textColor;
+
+    @extend %transitionPage;
+  }
+}

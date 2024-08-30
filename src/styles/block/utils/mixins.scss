@@ -1,0 +1,59 @@
+@mixin space-between-sectionsDesktop {
+  margin-bottom: 80px;
+}
+
+@mixin space-between-sectionsTablet {
+  margin-bottom: 64px;
+}
+
+@mixin space-between-sectionsPhone {
+  margin-bottom: 56px;
+}
+
+@mixin onTablet {
+  @media (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin onPhone {
+  @media (max-width: $phone-max-width) {
+    @content;
+  }
+}
+
+@mixin onScale($property: transform, $toValue: scale(1.1)) {
+  transform: scale(1.1);
+  #{$property}: $toValue;
+}
+
+@mixin rotate($property: transform, $toValue: rotate(0)) {
+  transition: all 0.4s;
+  #{$property}: $toValue;
+}
+
+@mixin onHover {
+  &:hover {
+    transition: all 0.4s;
+    transform: scale(1.1);
+  }
+}
+
+@mixin initialAnimation() {
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity 600ms linear,
+    transform 600ms linear;
+}
+
+@mixin activeAnimation() {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@mixin addedToCartDefaultStyle {
+  background-color: $backgroundColor;
+  border: 1px solid $bordeColor;
+  color: $addedToCartTextColor;
+}

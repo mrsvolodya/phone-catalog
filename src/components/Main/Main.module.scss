@@ -1,0 +1,85 @@
+@use '../../styles/block/utils/variables' as *;
+@import '../../styles/block/utils/mixins';
+
+.main {
+  flex-grow: 1;
+  color: $textColor;
+  &__content {
+    max-width: $maxContentWidth;
+    margin: 0 auto;
+  }
+
+  &__title {
+    line-height: 56px;
+    font-size: 48px;
+    font-weight: 800;
+    margin: 56px 0;
+    padding-inline: $onDesctop-container-padding;
+  }
+
+  &__heroSlider {
+    width: fit-content;
+    margin-bottom: 112px;
+  }
+
+  &__container {
+    padding-inline: 32px;
+  }
+  &__containerTitle {
+    display: block;
+    padding-inline: $onDesctop-container-padding;
+    height: 100%;
+  }
+}
+
+@include onTablet {
+  .main {
+    &__title {
+      margin: 48px auto;
+      padding-inline: $onTablet-container-padding;
+    }
+
+    &__heroSlider {
+      margin-bottom: 96px;
+    }
+
+    &__container {
+      padding-inline: $onTablet-container-padding;
+    }
+  }
+}
+
+@include onPhone {
+  .main {
+    margin-inline: 0;
+    &__actions__link {
+      height: 48px;
+      width: 48px;
+    }
+
+    &__title {
+      line-height: 41px;
+      margin: 24px 0;
+      letter-spacing: -1%;
+      font-size: 32px;
+      padding-inline: $onPhone-container-padding;
+    }
+
+    &__content {
+      margin: 0;
+    }
+
+    &__heroSlider {
+      margin-bottom: 88px;
+    }
+
+    &__titleBrandNewModels {
+      font-size: 22px;
+      line-height: 31px;
+    }
+
+    &__container {
+      padding-inline: 16px;
+    }
+  }
+}

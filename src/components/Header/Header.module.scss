@@ -1,0 +1,228 @@
+@use '../../styles/block/utils/variables.scss' as *;
+@import '../../styles/block/utils/mixins';
+@import '../../styles/block/utils/placeholders';
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: $backgroundColor;
+
+  &__searchField {
+    border: none;
+    border-left: 1px solid $bordeColor;
+    padding-inline: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: $backgroundColor;
+    color: $textColor;
+    outline: none;
+    font-style: italic;
+  }
+
+  &__actionsContainer {
+    display: flex;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    line-height: 11px;
+    position: relative;
+    height: $header-el-size-l;
+    width: 100%;
+
+    border-bottom: 1px solid $bordeColor;
+  }
+
+  &__leftNav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__logo {
+    margin-left: 24px;
+    height: 28px;
+    width: 80px;
+
+    @extend %transitionPage;
+    @include onHover;
+  }
+
+  &__link {
+    display: flex;
+    &:hover {
+      @extend %transitionPage;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__actionsWrapper {
+    display: flex;
+  }
+
+  &__quantityItemsCircle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 9px;
+    line-height: 12px;
+    font-weight: 700;
+    color: #fff;
+    top: 20px;
+    right: 16px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: $favoritesCircleBackColor;
+    z-index: 1;
+  }
+
+  &__actionsImg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__actionsLink {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: $header-el-size-l;
+    width: $header-el-size-l;
+    border-left: 1px solid $bordeColor;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .header__quantityItemsCircle,
+    .header__actionsImg {
+      @extend %transitionPage;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: 1px;
+      left: 1px;
+      right: 1px;
+      border-bottom: 3px solid $actionButtonHoverBorder;
+
+      @include initialAnimation;
+    }
+  }
+
+  &__actionsLink:hover {
+    .header__quantityItemsCircle,
+    .header__actionsImg {
+      @include onScale(transition, all 0.2s);
+    }
+  }
+
+  &__containerImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .header__activeButton.header__actionsLink::after {
+    @include activeAnimation;
+  }
+
+  &__burgerMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-left: 1px solid $bordeColor;
+    border-bottom: 1px solid $bordeColor;
+    height: $header-el-size-s;
+    width: $header-el-size-s;
+    background-color: $backgroundColor;
+    cursor: pointer;
+    transform: rotate(0deg);
+  }
+
+  &__topBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $header-el-size-l - 1px;
+    width: $header-el-size-l;
+    border-left: 1px solid $bordeColor;
+  }
+
+  .header__burgerMenuImg {
+    @include rotate;
+  }
+
+  &__burgerMenu:hover {
+    .header__burgerMenuImg {
+      @include rotate($property: transform, $toValue: rotate(180deg));
+    }
+  }
+}
+
+@include onTablet {
+  .header {
+    &__top {
+      height: $header-el-size-s;
+    }
+
+    &__leftNav {
+      gap: 16px;
+    }
+
+    &__logo {
+      margin-left: 16px;
+      height: 22px;
+      width: 64px;
+
+      @include onHover;
+    }
+
+    &__actionsLink {
+      height: $header-el-size-s;
+      width: $header-el-size-s;
+    }
+
+    &__content {
+      margin-inline: 24px;
+    }
+  }
+}
+
+@include onPhone {
+  .header {
+    &__actions__link {
+      height: 48px;
+      width: 48px;
+    }
+
+    &__title {
+      line-height: 41px;
+      margin: 24px 16px;
+      letter-spacing: -1%;
+      font-size: 32px;
+    }
+
+    &__bottom {
+      max-width: 100%;
+    }
+
+    &__content {
+      margin: 0;
+    }
+  }
+}

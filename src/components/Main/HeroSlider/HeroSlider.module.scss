@@ -1,0 +1,108 @@
+@use '../../../styles/block/utils/variables' as *;
+@import '../../../../src/styles/block/utils/mixins';
+@import '../../../styles/block/utils/placeholders';
+
+.slider {
+  padding-inline: $onDesctop-container-padding;
+  cursor: pointer;
+  &__block {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  &__button {
+    box-sizing: border-box;
+    min-width: $nav-btn-size;
+    background-color: $backgroundButtonSliderColor;
+    border: 1px solid $bordeColor;
+    cursor: pointer;
+    &:hover {
+      border-color: $actionButtonHoverBorder;
+    }
+  }
+
+  &__arrowIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin-inline: 15px;
+    touch-action: pan-y;
+  }
+
+  &__images {
+    display: flex;
+
+    @extend %transitionPage;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__containerSmallBtn {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+  }
+
+  &__smallButton {
+    height: 4px;
+    width: 14px;
+    border-radius: 0;
+    background-color: $backgroundSmallbuttonColor;
+    border: none;
+    position: relative;
+    margin: 4px;
+  }
+
+  &__smallButton:not(:last-child) {
+    margin: 4px;
+  }
+
+  &__activeButton {
+    background-color: $buttonActiveBackColor;
+  }
+}
+
+.slider__darkTheme .slider__button:hover {
+  border: none;
+  background-color: $actionsBackgroundButtonHover;
+}
+
+@include onTablet {
+  .slider {
+    padding-inline: $onTablet-container-padding;
+  }
+}
+
+@include onPhone {
+  .slider {
+    padding-inline: 0;
+    &__container {
+      margin: 0;
+    }
+
+    &__images {
+      object-fit: cover;
+    }
+
+    &__image {
+      height: 100vw;
+      object-fit: cover;
+      object-position: 88%;
+    }
+  }
+}

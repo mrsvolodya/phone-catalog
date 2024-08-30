@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Mont;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  scrollbar-width: thin;
+  list-style: none;
+}
+
+.light {
+  --bordeColor: #e2e6e9;
+  --elementsBorderColor: #e2e6e9;
+  --backgroundColor: #fff;
+  --textColorActiveState: #fff;
+  --textColor: #313237;
+  --secondTextColor: #89939a;
+  --paragraphTextColor: #89939a;
+  --textFooterColor: #89939a;
+  --selectHover: #89939a;
+  --backgroundButtonSliderColor: #fff;
+  --backgroundSmallbuttonColor: #e2e6e9;
+  --circleActiveColor: #313237;
+  --actionButtonHoverBorder: #313237;
+  --backgroundColorButtonCart: #313237;
+  --selectFocus: #313237;
+  --buttonActiveBackColor: #313237;
+  --backTextColorDefoult: #89939a;
+  --backHoverBtn: #313237;
+  --paginationBorderColorHover: #313237;
+  --backgroundPhoneCardHover: #313237;
+  --textColorButtonCart: #ffffff;
+  --selectBackgroundFocus: #fafbfc;
+  --selectDefault: #b4bdc3;
+  --selectBackground: #fff;
+  --paginationBackColor: #fff;
+  --backgroundColorButtonFav: #fff;
+  --backgroundColorPhoneCard: #fff;
+  --addedToCartTextColor: #27ae60;
+  --linkBackgroundButton: #0b0c0f;
+  --paginationTextColorActive: #fff;
+  --idsTextColor: #b4bdc3;
+  --paginationBackColorHover: #fff;
+  --paginationNumberBackColor: #fff;
+  --circleDefaultColor: #e2e6e9;
+  --circleHoverColor: #b4bdc3;
+  --borderCapacityColor: #b4bdc3;
+  --secondBorderActiveColor: #c4c4c4;
+  --favoritesCircleBackColor: #eb5757;
+  --buttonBorderColorDefault: #b4bdc3;
+}
+
+.dark {
+  --bordeColor: #323542;
+  --elementsBorderColor: #3b3e4a;
+  --backgroundColor: #0f1121;
+  --textColorActiveState: #0f1121;
+  --textColor: #f1f2f9;
+  --secondTextColor: #75767f;
+  --textFooterColor: #f1f2f9;
+  --selectHover: #4a4d58;
+  --backgroundButtonSliderColor: #323542;
+  --backgroundSmallbuttonColor: #3b3e4a;
+  --circleActiveColor: #f1f2f9;
+  --actionButtonHoverBorder: #f1f2f9;
+  --backgroundColorButtonCart: #905bff;
+  --selectFocus: #905bff;
+  --buttonActiveBackColor: #f1f2f9;
+  --backTextColorDefoult: #f1f2f9;
+  --backHoverBtn: #905bff;
+  --paginationBorderColorHover: #323542;
+  --backgroundPhoneCardHover: #a378ff;
+  --textColorButtonCart: #f1f2f9;
+  --selectBackgroundFocus: #323542;
+  --selectDefault: #323542;
+  --paginationBackColor: #323542;
+  --selectBackground: #323542;
+  --backgroundColorButtonFav: #323542;
+  --backgroundColorPhoneCard: #161827;
+  --addedToCartTextColor: #f1f2f9;
+  --linkBackgroundButton: #323542;
+  --paginationTextColorActive: #f1f2f9;
+  --idsTextColor: #4a4d58;
+  --actionsBackgroundButtonHover: #4a4d58;
+  --paginationBackColorHover: #4a4d58;
+  --paginationNumberBackColor: #161827;
+  --circleDefaultColor: #3b3e4a;
+  --circleHoverColor: #75767f;
+  --borderCapacityColor: #4a4d58;
+  --secondBorderActiveColor: #c4c4c4;
+  --favoritesCircleBackColor: #eb5757;
+
+  color: $textColor;
+  background-color: $backgroundColor;
+}
+
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
