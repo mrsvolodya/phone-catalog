@@ -58,6 +58,7 @@ export const StateProvider: React.FC<Props> = ({ children }) => {
     (el: RefObject<HTMLDivElement>) => {
       if (el.current) {
         const verticalScroll = window.innerHeight < el.current.offsetHeight;
+
         setIsScroll(verticalScroll);
       }
     },
