@@ -4,7 +4,7 @@
 .search {
   &__field {
     position: relative;
-    height: $header-el-size-l - 1px;
+    height: 63px;
     border: none;
     border-left: 1px solid $bordeColor;
     padding-inline: 10px;
@@ -26,7 +26,7 @@ input[type='search']::-webkit-search-cancel-button {
 @include onTablet {
   .search {
     &__field {
-      height: $header-el-size-s - 1px;
+      height: 47px;
     }
   }
 }

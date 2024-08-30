@@ -3,7 +3,6 @@
 @import '../../../styles/block/utils/placeholders';
 
 .footer {
-  height: $footer-el-height-l;
   border-top: $bordeColor 1px solid;
 
   &__actionContainer {
@@ -54,7 +53,7 @@
     color: $textFooterColor;
     text-transform: uppercase;
     align-items: center;
-    height: $footer-el-height-l - 1px;
+    height: $footer-el-height-l;
 
     &:hover {
       @extend %transitionPage;
