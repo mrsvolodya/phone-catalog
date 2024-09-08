@@ -2,9 +2,14 @@
 @import '../../../styles/block/utils/mixins';
 
 .search {
+  display: flex;
   &__field {
+
     position: relative;
     height: 63px;
+
+
+    
     border: none;
     border-left: 1px solid $bordeColor;
     padding-inline: 10px;

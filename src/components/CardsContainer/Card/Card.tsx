@@ -29,7 +29,8 @@ export const Card: React.FC<Props> = ({
   const { theme } = useContext(ThemeContext);
   const { screen, capacity, ram } = product;
 
-  const scrollToTop = () => {
+  const scrollToTop = (e: any) => {
+    e.stopPropagation();
     document.body.style.overflowY = 'auto';
 
     return window.scrollTo(0, 100);
